@@ -5,7 +5,7 @@
 # applist=(jenkins jenkinslave  docker puppet)
 ####################################
 
-applist=(jenkins docker awscli)
+applist=(jenkinslave awscli)
 
 for app in ${applist[@]}
 do
