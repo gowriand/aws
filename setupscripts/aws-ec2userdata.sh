@@ -2,7 +2,7 @@
 ###########################
 # Sample- Give app separated by space 
 ## Add puppet last only as it is followed by a reboot
-# applist=(jenkins docker puppet)
+# applist=(jenkins jenkinslave  docker puppet)
 ####################################
 
 applist=(jenkins docker awscli)
