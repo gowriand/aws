@@ -1,17 +1,8 @@
-#!/bin/bash
-###########################
-# Sample- Give app separated by space 
-## Add puppet last only as it is followed by a reboot
-# applist=(jenkins jenkinslave awscli docker puppet)
-####################################
 
-applist=(jenkinslave docker awscli)
-apt install -y net-tools
-for app in ${applist[@]}
-do
-    echo $app
-    cd /
-    sudo git clone https://github.com/gowriand/$app.git
-    cd /$app/setupscripts/
-    sudo sh -x setup-$app.sh
-done
+#!/bin/bash
+
+sudo apt-get update
+sudo apt install -y apache2
+sudo systemctl start apache2
+cp /var/www/html/index.html /var/www/html/index.html_bak
+echo "`hostname`" > /var/www/html/index.html
