@@ -5,7 +5,7 @@
 # applist=(jenkins jenkinslave awscli docker puppet)
 ####################################
 
-applist=(jenkinslave docker awscli)
+applist=(jenkinslave  awscli)
 apt install -y net-tools
 for app in ${applist[@]}
 do
