@@ -1,0 +1,18 @@
+import boto3
+
+rds = boto3.client('rds')
+
+def lambda_handler(event, context):
+    clusters = rds.describe_db_clusters()
+    #stop DB clusters if available
+    for cluster in clusters['DBClusters']:
+        print(cluster['DBClusterIdentifier'])
+        print(cluster['Status'])
+        if( cluster['Status'] == 'available'):
+            print('Status: Available so stopping')
+            rds.stop_db_cluster(DBClusterIdentifier=cluster['DBClusterIdentifier'])
+    
+
+if __name__ == "__main__":
+    lambda_handler(None, None)
+ 
