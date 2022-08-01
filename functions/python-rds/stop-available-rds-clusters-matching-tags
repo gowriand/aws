@@ -1,0 +1,27 @@
+import boto3
+
+rds = boto3.client('rds')
+
+def lambda_handler(event, context):
+    clusters = rds.describe_db_clusters()
+    
+    for cluster in clusters['DBClusters']:
+        print(cluster['DBClusterIdentifier'])
+        
+        #Stop only if in available status
+        if( cluster['Status'] == 'available'):
+            
+            #Get tag list and Traverse thru each tag pair
+            tag_list=rds.list_tags_for_resource(ResourceName=cluster['DBClusterArn'])['TagList']
+            for tag in tag_list:
+                if(tag['Key'] == 'autostop' and tag['Value'] == 'yes'):
+                    print('Tag matches so Stopping..' )
+                    #rds.stop_db_cluster(DBClusterIdentifier=cluster['DBClusterIdentifier'])
+                    
+        else:
+            print('Not in Available status')
+         
+     
+    
+if __name__ == "__main__":
+    lambda_handler(None, None)
