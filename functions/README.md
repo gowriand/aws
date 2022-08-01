@@ -1,6 +1,13 @@
-RDS stop
-     For permissions refer - https://aws.amazon.com/premiumsupport/knowledge-center/rds-stop-seven-days/
-     
+Using boto 
+     https://boto3.amazonaws.com/v1/documentation/api/latest/guide/examples.html
+     https://docs.aws.amazon.com/pythonsdk/
+
+     https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.list_buckets
      
 Python functions:
   https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/index.html
+
+
+RDS stop
+     For permissions refer - https://aws.amazon.com/premiumsupport/knowledge-center/rds-stop-seven-days/
+     
